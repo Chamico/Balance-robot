@@ -4,7 +4,7 @@
 我的淘宝小店：http://shop114407458.taobao.com/
 **************************************************************************/ 
 u8 Flag_Left,Flag_Right;   // 
-u8 Flag_Stop=1,Flag_Zero=0,Flag_Show=1,Flag_Qian,Flag_Hou,Flag_Left,Flag_Right,Flag_OK;       //停止标志位和 显示标志位 默认停止 显示打开
+u8 Flag_Stop=1,Flag_Zero=0,Flag_Show,Flag_Qian,Flag_Hou,Flag_Left,Flag_Right,Flag_OK;       //停止标志位和 显示标志位 默认停止 显示打开
 float Motor_X,Motor_Y,Motor_Z;
 long int Motor_A,Motor_B,Motor_C;        //电机PWM变量
 long int Target_A,Target_B,Target_C;     //电机目标值
@@ -34,21 +34,13 @@ int main(void)
 	delay_ms(500);                  //=====延时等待初始化稳定
   EXTI_Init();                    //=====MPU6050 5ms定时中断初始化  CAN1_Mode_Init(1,2,3,6,0);      //=====CAN初始化
 	MiniBalance_PWM_Init(7199,14);  //=====初始化PWM 用于驱动电机
+	
+	
 	while(1)
 		{		
-			if(Flag_Show==0)
-			{
-		  	//DataScope();	            //===上位机
-				//delay_flag=1;	            //===50ms中断精准延时标志位
-				//oled_show();              //===显示屏打开	  	
-				//while(delay_flag);        //===50ms中断精准延时  主要是波形显示上位机需要严格的50ms传输周期 
-			}
-			else
-			{
-				APP_Show();               //===APP
-				oled_show();              //===显示屏打开	  	
-			  delay_flag=1;	            //===50ms中断精准延时标志位
-				while(delay_flag);        //===50ms中断精准延时  主要是波形显示上位机需要严格的50ms传输周期   	
-			}
+			APP_Show();               //===APP
+			oled_show();              //===显示屏打开	  	
+			delay_flag=1;	            //===50ms中断精准延时标志位
+			while(delay_flag);        //===50ms中断精准延时  主要是波形显示上位机需要严格的50ms传输周期   	
 		} 
 }

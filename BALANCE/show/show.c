@@ -13,75 +13,96 @@ float Vol;
 **************************************************************************/
 void oled_show(void)
 {
-	  //=============第1行显示3轴角度===============//	
-	OLED_ShowString(0,0,"X:");
-		if(Pitch_Bias<0)		OLED_ShowNumber(15,0,Pitch_Bias+360,3,12);
-		else					      OLED_ShowNumber(15,0,Pitch_Bias,3,12);	
-       
-	OLED_ShowString(40,0,"Y:");
-		if(Roll_Bias<0)		OLED_ShowNumber(55,0,Roll_Bias+360,3,12);
-		else					    OLED_ShowNumber(55,0,Roll_Bias,3,12);	
-	
-	   OLED_ShowString(80,0,"Z:");
-		if(Yaw<0)		OLED_ShowNumber(95,0,Yaw+360,3,12);
-		else					OLED_ShowNumber(95,0,Yaw,3,12);		
+	//=============第1行和第2行显示项目名称===============//	
+	OLED_ShowChinese_one(0,0,0); //基
+	OLED_ShowChinese_one(16,0,1); //于
+	OLED_ShowString(35,3,"MCU");
+	OLED_ShowChinese_one(60,0,2); //的
+	OLED_ShowChinese_one(78,0,3); //球
+	OLED_ShowChinese_one(95,0,4); //动
+	OLED_ShowChinese_one(112,0,5); //式
+	OLED_ShowChinese_two(20,0,6); //平
+	OLED_ShowChinese_two(37,0,7); //衡
+	OLED_ShowChinese_two(54,0,8); //机
+	OLED_ShowChinese_two(71,0,9); //器
+	OLED_ShowChinese_two(88,0,10); //人
+	//=============第3行显示项目编号===============//	
+	OLED_ShowString(18,34,"201810742086");
+	//=============第4行显示电机PWM波值===============//	
+	OLED_ShowString(0,44,"A:");
+	//OLED_ShowNumber(10,44,Motor_A,3,12);
+	OLED_ShowString(45,44,"B:");
+	//OLED_ShowNumber(55,44,Motor_B,3,12);
+	OLED_ShowString(90,44,"C:");
+	//OLED_ShowNumber(100,44,Motor_C,3,12);
 
-		//=============显示电机A的状态=======================//	
-										      OLED_ShowString(00,10,"A");
-	  if( Target_A<0)		    OLED_ShowString(15,10,"-"),
-		                      OLED_ShowNumber(25,10,-Target_A,4,12);
-		else                 	OLED_ShowString(15,10,"+"),
-		                      OLED_ShowNumber(25,10, Target_A,4,12); 
-													OLED_ShowString(70,10,"X");
-		if( Move_X<0)		      OLED_ShowString(85,10,"-"),
-		                      OLED_ShowNumber(95,10,-Move_X,4,12);
-		else                 	OLED_ShowString(85,10,"+"),
-		                      OLED_ShowNumber(95,10, Move_X,4,12);
-		//=============显示电机B的状态=======================//	
-										      OLED_ShowString(00,20,"B");
-		  if( Target_B<0)		  OLED_ShowString(15,20,"-"),
-		                      OLED_ShowNumber(25,20,-Target_B,4,12);
-		else                 	OLED_ShowString(15,20,"+"),
-		                      OLED_ShowNumber(25,20, Target_B,4,12);
-		
-													OLED_ShowString(70,20,"Y");
-		if( Move_Y<0)		      OLED_ShowString(85,20,"-"),
-		                      OLED_ShowNumber(95,20,-Move_Y,4,12);
-		else                 	OLED_ShowString(85,20,"+"),
-		                      OLED_ShowNumber(95,20, Move_Y,4,12);
- 		//=============显示电机C的状态=======================//	
-												  OLED_ShowString(00,30,"C");
-		  if( Target_C<0)		  OLED_ShowString(15,30,"-"),
-		                      OLED_ShowNumber(25,30,-Target_C,4,12);
-		else                 	OLED_ShowString(15,30,"+"),
-		                      OLED_ShowNumber(25,30, Target_C,4,12); 
-													
-		                      OLED_ShowString(70,30,"Z");
-		if( Move_Z<0)		      OLED_ShowString(85,30,"-"),
-		                      OLED_ShowNumber(95,30,-Move_Z,4,12);
-		else                 	OLED_ShowString(85,30,"+"),
-		                      OLED_ShowNumber(95,30, Move_Z,4,12);	
-		//=============显示电机D的状态=======================//
-  	OLED_ShowString(0,40,"XR:");
-		if(Pitch<0)		      OLED_ShowNumber(20,40,Pitch+360,3,12);
-		else					      OLED_ShowNumber(20,40,Pitch,3,12);	
-       
-  	OLED_ShowString(45,40,"YR:");
-		if(Roll<0)		   OLED_ShowNumber(65,40,Roll+360,3,12);
-		else					    OLED_ShowNumber(65,40,Roll,3,12);	
-		
-				 if(Flag_Stop==0) OLED_ShowString(100,40,"O-N");
-			   else             OLED_ShowString(100,40,"OFF");
-		//=============第6行显示模式和电压=======================//
-												  OLED_ShowString(60,50,"MODE");
-				 if(Flag_Show==0) OLED_ShowString(100,50,"P-C");
-			   else             OLED_ShowString(100,50,"APP");
-		                      OLED_ShowString(13,50,".");
-		                      OLED_ShowString(35,50,"V");
-		                      OLED_ShowNumber(0,50,Voltage/100,2,12);
-		                      OLED_ShowNumber(23,50,Voltage%100,2,12);
-		 if(Voltage%100<10) 	OLED_ShowNumber(17,50,0,2,12);
-		//=============刷新=======================//
+//		if(Pitch_Bias<0)		OLED_ShowNumber(15,0,Pitch_Bias+360,3,12);
+//		else					      OLED_ShowNumber(15,0,Pitch_Bias,3,12);	
+//       
+//	OLED_ShowString(40,0,"Y:");
+//		if(Roll_Bias<0)		OLED_ShowNumber(55,0,Roll_Bias+360,3,12);
+//		else					    OLED_ShowNumber(55,0,Roll_Bias,3,12);	
+//	
+//	   OLED_ShowString(80,0,"Z:");
+//		if(Yaw<0)		OLED_ShowNumber(95,0,Yaw+360,3,12);
+//		else					OLED_ShowNumber(95,0,Yaw,3,12);		
+
+//		//=============显示电机A的状态=======================//	
+//										      OLED_ShowString(00,10,"A");
+//	  if( Target_A<0)		    OLED_ShowString(15,10,"-"),
+//		                      OLED_ShowNumber(25,10,-Target_A,4,12);
+//		else                 	OLED_ShowString(15,10,"+"),
+//		                      OLED_ShowNumber(25,10, Target_A,4,12); 
+//													OLED_ShowString(70,10,"X");
+//		if( Move_X<0)		      OLED_ShowString(85,10,"-"),
+//		                      OLED_ShowNumber(95,10,-Move_X,4,12);
+//		else                 	OLED_ShowString(85,10,"+"),
+//		                      OLED_ShowNumber(95,10, Move_X,4,12);
+//		//=============显示电机B的状态=======================//	
+//										      OLED_ShowString(00,20,"B");
+//		  if( Target_B<0)		  OLED_ShowString(15,20,"-"),
+//		                      OLED_ShowNumber(25,20,-Target_B,4,12);
+//		else                 	OLED_ShowString(15,20,"+"),
+//		                      OLED_ShowNumber(25,20, Target_B,4,12);
+//		
+//													OLED_ShowString(70,20,"Y");
+//		if( Move_Y<0)		      OLED_ShowString(85,20,"-"),
+//		                      OLED_ShowNumber(95,20,-Move_Y,4,12);
+//		else                 	OLED_ShowString(85,20,"+"),
+//		                      OLED_ShowNumber(95,20, Move_Y,4,12);
+// 		//=============显示电机C的状态=======================//	
+//												  OLED_ShowString(00,30,"C");
+//		  if( Target_C<0)		  OLED_ShowString(15,30,"-"),
+//		                      OLED_ShowNumber(25,30,-Target_C,4,12);
+//		else                 	OLED_ShowString(15,30,"+"),
+//		                      OLED_ShowNumber(25,30, Target_C,4,12); 
+//													
+//		                      OLED_ShowString(70,30,"Z");
+//		if( Move_Z<0)		      OLED_ShowString(85,30,"-"),
+//		                      OLED_ShowNumber(95,30,-Move_Z,4,12);
+//		else                 	OLED_ShowString(85,30,"+"),
+//		                      OLED_ShowNumber(95,30, Move_Z,4,12);	
+//		//=============显示电机D的状态=======================//
+//  	OLED_ShowString(0,40,"XR:");
+//		if(Pitch<0)		      OLED_ShowNumber(20,40,Pitch+360,3,12);
+//		else					      OLED_ShowNumber(20,40,Pitch,3,12);	
+//       
+//  	OLED_ShowString(45,40,"YR:");
+//		if(Roll<0)		   OLED_ShowNumber(65,40,Roll+360,3,12);
+//		else					    OLED_ShowNumber(65,40,Roll,3,12);	
+//		
+//				 if(Flag_Stop==0) OLED_ShowString(100,40,"O-N");
+//			   else             OLED_ShowString(100,40,"OFF");
+//		//=============第6行显示模式和电压=======================//
+//												  OLED_ShowString(60,50,"MODE");
+//				 if(Flag_Show==0) OLED_ShowString(100,50,"P-C");
+//			   else             OLED_ShowString(100,50,"APP");
+//		                      OLED_ShowString(13,50,".");
+//		                      OLED_ShowString(35,50,"V");
+//		                      OLED_ShowNumber(0,50,Voltage/100,2,12);
+//		                      OLED_ShowNumber(23,50,Voltage%100,2,12);
+//		 if(Voltage%100<10) 	OLED_ShowNumber(17,50,0,2,12);
+//		//=============刷新=======================//
 		OLED_Refresh_Gram();	
 	}
 /**************************************************************************

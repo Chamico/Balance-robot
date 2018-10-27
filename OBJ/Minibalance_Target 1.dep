@@ -1,6 +1,6 @@
 Dependencies for Project 'Minibalance', Target 'Target 1': (DO NOT MODIFY !)
 F (.\startup_stm32f10x_hd.s)(0x5BD30FE0)(--cpu Cortex-M3 -g --apcs=interwork -I "C:\Users\Chamico\Desktop\Balance Robot\Balance-robot\USER\RTE"-I G:\keil5\ARM\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I G:\keil5\ARM\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 514" --pd "STM32F10X_HD SETA 1"--list ..\obj\startup_stm32f10x_hd.lst --xref -o ..\obj\startup_stm32f10x_hd.o --depend ..\obj\startup_stm32f10x_hd.d)
-F (.\Minibalance.c)(0x5BD31084)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\OLED -I..\HARDWARE\ADC -I..\HARDWARE\TIMER -I..\HARDWARE\MOTOR -I..\BALANCE\CONTROL -I..\HARDWARE\IIC -I..\BALANCE\CONTROL -I..\BALANCE\DMP -I..\BALANCE\filter -I..\BALANCE\MPU6050 -I..\BALANCE\show -I..\BALANCE\controls -I..\HARDWARE\EXTI -I..\HARDWARE\DataScope_DP -I..\HARDWARE\USARTX-I "C:\Users\Chamico\Desktop\Balance Robot\Balance-robot\USER\RTE"-I G:\keil5\ARM\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I G:\keil5\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD-o ..\obj\minibalance.o --omf_browse ..\obj\minibalance.crf --depend ..\obj\minibalance.d)
+F (.\Minibalance.c)(0x5BD44E2C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\OLED -I..\HARDWARE\ADC -I..\HARDWARE\TIMER -I..\HARDWARE\MOTOR -I..\BALANCE\CONTROL -I..\HARDWARE\IIC -I..\BALANCE\CONTROL -I..\BALANCE\DMP -I..\BALANCE\filter -I..\BALANCE\MPU6050 -I..\BALANCE\show -I..\BALANCE\controls -I..\HARDWARE\EXTI -I..\HARDWARE\DataScope_DP -I..\HARDWARE\USARTX-I "C:\Users\Chamico\Desktop\Balance Robot\Balance-robot\USER\RTE"-I G:\keil5\ARM\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I G:\keil5\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD-o ..\obj\minibalance.o --omf_browse ..\obj\minibalance.crf --depend ..\obj\minibalance.d)
 I (..\SYSTEM\sys\sys.h)(0x5BD30FE0)
 I (..\SYSTEM\sys\stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\sys\core_cm3.h)(0x5BD30FE0)
@@ -9,7 +9,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -37,7 +37,7 @@ I (G:\keil5\ARM\ARM\ARMCC\include\stdint.h)(0x5475F300)
 I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -65,7 +65,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -94,7 +94,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
 I (..\HARDWARE\ADC\adc.h)(0x5BD30FE0)
 I (..\HARDWARE\TIMER\timer.h)(0x5BD30FE0)
@@ -121,7 +121,7 @@ I (G:\keil5\ARM\ARM\ARMCC\include\stdint.h)(0x5475F300)
 I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -149,7 +149,7 @@ I (G:\keil5\ARM\ARM\ARMCC\include\stdint.h)(0x5475F300)
 I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -168,8 +168,8 @@ I (..\BALANCE\DMP\dmpmap.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\string.h)(0x5475F300)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdlib.h)(0x5475F300)
 I (G:\keil5\ARM\ARM\ARMCC\include\math.h)(0x5475F2FE)
-F (..\HARDWARE\OLED\oled.c)(0x5BD30FE0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\OLED -I..\HARDWARE\ADC -I..\HARDWARE\TIMER -I..\HARDWARE\MOTOR -I..\BALANCE\CONTROL -I..\HARDWARE\IIC -I..\BALANCE\CONTROL -I..\BALANCE\DMP -I..\BALANCE\filter -I..\BALANCE\MPU6050 -I..\BALANCE\show -I..\BALANCE\controls -I..\HARDWARE\EXTI -I..\HARDWARE\DataScope_DP -I..\HARDWARE\USARTX-I "C:\Users\Chamico\Desktop\Balance Robot\Balance-robot\USER\RTE"-I G:\keil5\ARM\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I G:\keil5\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD-o ..\obj\oled.o --omf_browse ..\obj\oled.crf --depend ..\obj\oled.d)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+F (..\HARDWARE\OLED\oled.c)(0x5BD44E2C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\OLED -I..\HARDWARE\ADC -I..\HARDWARE\TIMER -I..\HARDWARE\MOTOR -I..\BALANCE\CONTROL -I..\HARDWARE\IIC -I..\BALANCE\CONTROL -I..\BALANCE\DMP -I..\BALANCE\filter -I..\BALANCE\MPU6050 -I..\BALANCE\show -I..\BALANCE\controls -I..\HARDWARE\EXTI -I..\HARDWARE\DataScope_DP -I..\HARDWARE\USARTX-I "C:\Users\Chamico\Desktop\Balance Robot\Balance-robot\USER\RTE"-I G:\keil5\ARM\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I G:\keil5\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD-o ..\obj\oled.o --omf_browse ..\obj\oled.crf --depend ..\obj\oled.d)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\sys\sys.h)(0x5BD30FE0)
 I (..\SYSTEM\sys\stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\sys\core_cm3.h)(0x5BD30FE0)
@@ -207,7 +207,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -235,7 +235,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -263,7 +263,7 @@ I (..\SYSTEM\sys\sys.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -291,7 +291,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -319,7 +319,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\ADC\adc.h)(0x5BD30FE0)
@@ -347,7 +347,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -376,7 +376,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -404,7 +404,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -435,7 +435,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
@@ -453,7 +453,7 @@ I (..\BALANCE\DMP\dmpmap.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\string.h)(0x5475F300)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdlib.h)(0x5475F300)
 I (G:\keil5\ARM\ARM\ARMCC\include\math.h)(0x5475F2FE)
-F (..\BALANCE\show\show.c)(0x5BD30FE0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\OLED -I..\HARDWARE\ADC -I..\HARDWARE\TIMER -I..\HARDWARE\MOTOR -I..\BALANCE\CONTROL -I..\HARDWARE\IIC -I..\BALANCE\CONTROL -I..\BALANCE\DMP -I..\BALANCE\filter -I..\BALANCE\MPU6050 -I..\BALANCE\show -I..\BALANCE\controls -I..\HARDWARE\EXTI -I..\HARDWARE\DataScope_DP -I..\HARDWARE\USARTX-I "C:\Users\Chamico\Desktop\Balance Robot\Balance-robot\USER\RTE"-I G:\keil5\ARM\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I G:\keil5\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD-o ..\obj\show.o --omf_browse ..\obj\show.crf --depend ..\obj\show.d)
+F (..\BALANCE\show\show.c)(0x5BD44E2C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\KEY -I..\HARDWARE\OLED -I..\HARDWARE\ADC -I..\HARDWARE\TIMER -I..\HARDWARE\MOTOR -I..\BALANCE\CONTROL -I..\HARDWARE\IIC -I..\BALANCE\CONTROL -I..\BALANCE\DMP -I..\BALANCE\filter -I..\BALANCE\MPU6050 -I..\BALANCE\show -I..\BALANCE\controls -I..\HARDWARE\EXTI -I..\HARDWARE\DataScope_DP -I..\HARDWARE\USARTX-I "C:\Users\Chamico\Desktop\Balance Robot\Balance-robot\USER\RTE"-I G:\keil5\ARM\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include-I G:\keil5\ARM\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD-o ..\obj\show.o --omf_browse ..\obj\show.crf --depend ..\obj\show.d)
 I (..\BALANCE\show\show.h)(0x5BD30FE0)
 I (..\SYSTEM\sys\sys.h)(0x5BD30FE0)
 I (..\SYSTEM\sys\stm32f10x.h)(0x5BD30FE0)
@@ -463,7 +463,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5BD30FE0)
 I (..\SYSTEM\delay\delay.h)(0x5BD30FE0)
 I (..\HARDWARE\LED\led.h)(0x5BD30FE0)
 I (..\HARDWARE\KEY\key.h)(0x5BD30FE0)
-I (..\HARDWARE\OLED\oled.h)(0x5BD30FE0)
+I (..\HARDWARE\OLED\oled.h)(0x5BD44E2C)
 I (..\SYSTEM\usart\usart.h)(0x5BD30FE0)
 I (G:\keil5\ARM\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\HARDWARE\USARTX\usartx.h)(0x5BD30FE0)
