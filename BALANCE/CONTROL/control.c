@@ -1,9 +1,14 @@
 #include "control.h"	
 #include "filter.h"	
-  /**************************************************************************
-作者：平衡小车之家
-我的淘宝小店：http://shop114407458.taobao.com/
-**************************************************************************/
+
+
+
+extern float blu_channel_1;
+extern float blu_channel_2;
+extern float blu_channel_3;
+extern float blu_channel_4;
+
+
 u8 Flag_Target;                             //相关标志位
 float Voltage_Count,Voltage_All;  //电压采样相关变量
 int Balance_Pwm_X,Velocity_Pwm_X,Balance_Pwm_Y,Velocity_Pwm_Y;
@@ -62,7 +67,10 @@ int EXTI15_10_IRQHandler(void)
 			}     //===10ms控制一次	
 			 Read_DMP();    //===更新姿态		
 			 Roll_Bias =Roll-Roll_Zero;		//获取Y方向的偏差
-		   Pitch_Bias=Pitch-Pitch_Zero; //获取X方向的偏差		
+			 Pitch_Bias += (blu_channel_1*0.05);
+		   Pitch_Bias=Pitch-Pitch_Zero; //获取X方向的偏差	
+
+Pitch_Bias += (blu_channel_1*0.05);			
 			 Forward_Kinematics(Motor_A,Motor_B,Motor_C);  //正运动学分析，得到X Y Z 方向的速度
 		   Balance_Pwm_X=balance_Pitch(Pitch_Bias,gyro[1]);   //X方向的倾角控制
 			 Balance_Pwm_Y=-balance_Roll(Roll_Bias, gyro[0]);   //Y方向的倾角控制
@@ -182,7 +190,7 @@ int velocity_Y(int velocity)
 /**************************************************************************
 函数功能：赋值给PWM寄存器
 入口参数：PWM
-返回  值：无
+返回  值：无 
 **************************************************************************/
 void Set_Pwm(int motor_a,int motor_b,int motor_c)
 {

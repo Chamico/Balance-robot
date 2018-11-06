@@ -28,6 +28,13 @@ int fputc(int ch, FILE *f)
 #endif 
 
 int Usart_Receive;
+
+
+float blu_channel_1 = 0;
+float blu_channel_2 = 0;
+float blu_channel_3 = 0;
+float blu_channel_4 = 0;
+
 /**************************实现函数**********************************************
 *功    能:		usart1发送一个字节
 *********************************************************************************/
@@ -156,10 +163,14 @@ int USART2_IRQHandler(void)
 						}
 						switch(Receive[1])
 						 {	
-							 case 0x30:  Balance_Kp=Data;break;
-							 case 0x31:  Balance_Kd=Data;break;
-							 case 0x32:  Velocity_Kp=Data;break;
-							 case 0x33:  Velocity_Ki=Data;break;
+							 case 0x30:  //Balance_Kp=Data;
+							 blu_channel_1 = Data - 200;break; 
+							 case 0x31:  //Balance_Kd=Data;
+							 blu_channel_1 = Data - 19;break;
+							 case 0x32:  //Velocity_Kp=Data;
+							 blu_channel_1 = Data - 50;break;
+							 case 0x33:  //Velocity_Ki=Data;
+							 blu_channel_1 = Data - 10;break;
 							 case 0x34:  break;
 							 case 0x35:  break;
 							 case 0x36:  break;

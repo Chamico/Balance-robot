@@ -6,6 +6,9 @@
 unsigned char i;          //计数变量
 unsigned char Send_Count; //串口需要发送的数据个数
 float Vol;
+
+extern float blu_channel_1;
+
 /**************************************************************************
 函数功能：OLED显示
 入口参数：无
@@ -34,7 +37,7 @@ void oled_show(void)
 	OLED_ShowString(45,44,"B:");
 	//OLED_ShowNumber(55,44,Motor_B,3,12);
 	OLED_ShowString(90,44,"C:");
-	//OLED_ShowNumber(100,44,Motor_C,3,12);
+	OLED_ShowNumber(110,44,Roll,3,12);
 
 //		if(Pitch_Bias<0)		OLED_ShowNumber(15,0,Pitch_Bias+360,3,12);
 //		else					      OLED_ShowNumber(15,0,Pitch_Bias,3,12);	

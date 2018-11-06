@@ -5,6 +5,8 @@
 		   
 u8 OLED_GRAM[128][8];	 
 
+u16 refresh_count = 0;
+
 
 const unsigned char  Hzk[][32]={
 	
@@ -68,14 +70,23 @@ void OLED_ShowChinese_two(unsigned char x,unsigned char y,unsigned char address)
 
 void OLED_Refresh_Gram(void)
 {
-	u8 i,n;		    
-	for(i=0;i<8;i++)  
-	{  
-		OLED_WR_Byte (0xb0+i,OLED_CMD);    //设置页地址（0~7）
-		OLED_WR_Byte (0x00,OLED_CMD);      //设置显示位置—列低地址
-		OLED_WR_Byte (0x10,OLED_CMD);      //设置显示位置—列高地址   
-		for(n=0;n<128;n++)OLED_WR_Byte(OLED_GRAM[n][i],OLED_DATA); 
-	}   
+	u8 i,n;	
+	refresh_count ++;
+	if(refresh_count == 1)
+	{
+		refresh_count = 0;
+		
+		for(i=0;i<8;i++)  
+		{  
+			OLED_WR_Byte (0xb0+i,OLED_CMD);    //设置页地址（0~7）
+			OLED_WR_Byte (0x00,OLED_CMD);      //设置显示位置—列低地址
+			OLED_WR_Byte (0x10,OLED_CMD);      //设置显示位置—列高地址   
+			for(n=0;n<128;n++)OLED_WR_Byte(OLED_GRAM[n][i],OLED_DATA); 
+		}   
+	}
+	    
+	
+	
 }
 
 //向OLED写入一个字节。
@@ -143,30 +154,30 @@ void OLED_DrawPoint(u8 x,u8 y,u8 t)
 //y:0~63
 //mode:0,反白显示;1,正常显示				 
 //size:选择字体 16/12 
-//void OLED_ShowChar(u8 x,u8 y,u8 chr,u8 size,u8 mode)
-//{      			    
-//	u8 temp,t,t1;
-//	u8 y0=y;
-//	chr=chr-' ';//得到偏移后的值				   
-//    for(t=0;t<size;t++)
-//    {   
-//		if(size==12)temp=oled_asc2_1206[chr][t];  //调用1206字体
-//		else temp=oled_asc2_1608[chr][t];		 //调用1608字体 	                          
-//        for(t1=0;t1<8;t1++)
-//		{
-//			if(temp&0x80)OLED_DrawPoint(x,y,mode);
-//			else OLED_DrawPoint(x,y,!mode);
-//			temp<<=1;
-//			y++;
-//			if((y-y0)==size)
-//			{
-//				y=y0;
-//				x++;
-//				break;
-//			}
-//		}  	 
-//    }          
-//}
+void OLED_ShowChar(u8 x,u8 y,u8 chr,u8 size,u8 mode)
+{      			    
+	u8 temp,t,t1;
+	u8 y0=y;
+	chr=chr-' ';//得到偏移后的值				   
+    for(t=0;t<size;t++)
+    {   
+		if(size==12)temp=oled_asc2_1206[chr][t];  //调用1206字体
+		else temp=oled_asc2_1608[chr][t];		 //调用1608字体 	                          
+        for(t1=0;t1<8;t1++)
+		{
+			if(temp&0x80)OLED_DrawPoint(x,y,mode);
+			else OLED_DrawPoint(x,y,!mode);
+			temp<<=1;
+			y++;
+			if((y-y0)==size)
+			{
+				y=y0;
+				x++;
+				break;
+			}
+		}  	 
+    }          
+}
 //m^n函数
 u32 oled_pow(u8 m,u8 n)
 {
