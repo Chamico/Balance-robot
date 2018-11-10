@@ -6,7 +6,7 @@
 u8 OLED_GRAM[128][8];	 
 
 u16 refresh_count = 0;
-
+u8 flag = 0, flag_count = 0;
 
 const unsigned char  Hzk[][32]={
 	
@@ -71,21 +71,38 @@ void OLED_ShowChinese_two(unsigned char x,unsigned char y,unsigned char address)
 void OLED_Refresh_Gram(void)
 {
 	u8 i,n;	
-	refresh_count ++;
-	if(refresh_count == 1)
-	{
-		refresh_count = 0;
-		
-		for(i=0;i<8;i++)  
-		{  
-			OLED_WR_Byte (0xb0+i,OLED_CMD);    //设置页地址（0~7）
-			OLED_WR_Byte (0x00,OLED_CMD);      //设置显示位置—列低地址
-			OLED_WR_Byte (0x10,OLED_CMD);      //设置显示位置—列高地址   
-			for(n=0;n<128;n++)OLED_WR_Byte(OLED_GRAM[n][i],OLED_DATA); 
-		}   
-	}
-	    
+	if(flag == 0){
 	
+			for(i=0;i<8;i++)  
+			{  
+				OLED_WR_Byte (0xb0+i,OLED_CMD);    //设置页地址（0~7）
+				OLED_WR_Byte (0x00,OLED_CMD);      //设置显示位置—列低地址
+				OLED_WR_Byte (0x10,OLED_CMD);      //设置显示位置—列高地址   
+				for(n=0;n<128;n++)OLED_WR_Byte(OLED_GRAM[n][i],OLED_DATA); 
+			}  
+
+			for(i=0;i<8;i++)  
+			{  
+				OLED_WR_Byte (0xb0+i,OLED_CMD);    //设置页地址（0~7）
+				OLED_WR_Byte (0x00,OLED_CMD);      //设置显示位置—列低地址
+				OLED_WR_Byte (0x10,OLED_CMD);      //设置显示位置—列高地址   
+				for(n=0;n<128;n++)OLED_WR_Byte(OLED_GRAM[n][i],OLED_DATA); 
+			}  			
+	
+		
+		flag_count++;
+		
+		if(flag_count > 1)
+		{
+			
+			flag_count = 22;
+			flag = 1;
+		}
+		
+	} 
+	else
+
+	{}
 	
 }
 

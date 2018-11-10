@@ -3,6 +3,7 @@
 作者：平衡小车之家
 我的淘宝小店：http://shop114407458.taobao.com/
 **************************************************************************/
+extern int stopFlag;
 void MiniBalance_Motor_Init(void)
 {
 	RCC->APB2ENR|=1<<3;       //PORTB时钟使能   
@@ -68,7 +69,16 @@ void MiniBalance_PWM_Init(u16 arr,u16 psc)
 } 
 
 void Set_PWM_Final(u16 arr1,u16 arr2,u16 arr3)
-{		 					 
+	
+
+{	
+
+if(stopFlag == 0)
+{
+	arr1 = 0;
+	arr2 = 0;
+	arr3 = 0;
+}	
 	TIM1->ARR=arr1;             //设定计数器自动重装值 
 	TIM1->PSC=14;             //预分频器不分频
 	TIM1->CR1|=0<<4;          //向上计数模式

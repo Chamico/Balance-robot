@@ -7,7 +7,8 @@ extern float blu_channel_1;
 extern float blu_channel_2;
 extern float blu_channel_3;
 extern float blu_channel_4;
-
+extern float blu_channel_5;
+extern int stopFlag; 
 
 u8 Flag_Target;                             //相关标志位
 float Voltage_Count,Voltage_All;  //电压采样相关变量
@@ -70,12 +71,16 @@ int EXTI15_10_IRQHandler(void)
 			 Pitch_Bias += (blu_channel_1*0.05);
 		   Pitch_Bias=Pitch-Pitch_Zero; //获取X方向的偏差	
 
-Pitch_Bias += (blu_channel_1*0.05);			
+			Pitch_Bias += (blu_channel_1*0.05);			
 			 Forward_Kinematics(Motor_A,Motor_B,Motor_C);  //正运动学分析，得到X Y Z 方向的速度
-		   Balance_Pwm_X=balance_Pitch(Pitch_Bias,gyro[1]);   //X方向的倾角控制
-			 Balance_Pwm_Y=-balance_Roll(Roll_Bias, gyro[0]);   //Y方向的倾角控制
-			 Velocity_Pwm_X=velocity_X(Motor_X);      //X方向的速度控制
-			 Velocity_Pwm_Y=velocity_Y(Motor_Y);  	  //Y方向的速度控制
+			
+			
+		   Balance_Pwm_X=balance_Pitch(Pitch_Bias,gyro[1]) + (0.001 * blu_channel_1) - (0.001 * blu_channel_2);   //X方向的倾角控制
+			 Balance_Pwm_Y=-balance_Roll(Roll_Bias, gyro[0]) + (0.001 * blu_channel_3) - (0.001 * blu_channel_4) ;   //Y方向的倾角控制
+	
+
+			Velocity_Pwm_X=velocity_X(Motor_X)- blu_channel_5 + 5;      //X方向的速度控制
+			 Velocity_Pwm_Y=velocity_Y(Motor_Y) - blu_channel_5 + 5;  	  //Y方向的速度控制
 			 Move_X =Balance_Pwm_X+Velocity_Pwm_X;    //===X方向控制量累加				
 			 Move_Y =Balance_Pwm_Y+Velocity_Pwm_Y;    //===Y方向控制量累加	
 			 Move_Z=0;  //Z轴不做控制

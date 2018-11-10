@@ -1,7 +1,8 @@
 #include "usart.h"	  
 //加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
 #if 1
-#pragma import(__use_no_semihosting)             
+#pragma import(__use_no_semihosting)  
+int stopFlag = 1;
 //标准库需要的支持函数                 
 struct __FILE 
 { 
@@ -34,7 +35,7 @@ float blu_channel_1 = 0;
 float blu_channel_2 = 0;
 float blu_channel_3 = 0;
 float blu_channel_4 = 0;
-
+float blu_channel_5 = 5;
 /**************************实现函数**********************************************
 *功    能:		usart1发送一个字节
 *********************************************************************************/
@@ -112,78 +113,47 @@ int USART2_IRQHandler(void)
 		static u8 Flag_PID,i,j,Receive[50];
 		static float Data;
 		Usart_Receive=USART2->DR;
+		blu_channel_1 = Usart_Receive;
+		switch(Usart_Receive){
+			
+			case 49:
+				blu_channel_1  += 1;
+				break;
+			
+			case 50:
+				blu_channel_2  += 1;
+				break;
+			
+			case 51:
+				blu_channel_3  += 1;
+				break;
+			
+			case 52:
+				blu_channel_4  += 1;
+				break;
+			
+			case 53:
+				blu_channel_1  = 0;
+				break;
+			
+			case 54:
+				stopFlag  = 0;
+				break;
+			
+			case 55:
+				stopFlag  = 1;
+				break;
+			
+			case 56:
+				blu_channel_5 += 1;
+				break;
+			
+			case 57:
+				blu_channel_5 -= 1;
+				break;
+		
+		}
 	
-	 if(Usart_Receive==0x58) 	PCout(3)=!PCout(3);		
-		
-			  if(Usart_Receive>10)  //默认使用
-    {			
-			if(Usart_Receive==0x5A)	Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
-			else if(Usart_Receive==0x41)	Flag_Qian=1,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////前
-			else if(Usart_Receive==0x45)	Flag_Qian=0,Flag_Hou=1,Flag_Left=0,Flag_Right=0;//////////////后
-			else if(Usart_Receive==0x42||Usart_Receive==0x43||Usart_Receive==0x44)	
-														Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=1;  //左
-			else if(Usart_Receive==0x46||Usart_Receive==0x47||Usart_Receive==0x48)	//右
-														Flag_Qian=0,Flag_Hou=0,Flag_Left=1,Flag_Right=0;
-			else Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
-  	}
-		if(Usart_Receive<10)     //备用app为：MiniBalanceV1.0  因为MiniBalanceV1.0的遥控指令为A~H 其HEX都小于10
-		{			
-			if(Usart_Receive==0x00)	Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
-			else if(Usart_Receive==0x01)	Flag_Qian=1,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////前
-			else if(Usart_Receive==0x05)	Flag_Qian=0,Flag_Hou=1,Flag_Left=0,Flag_Right=0;//////////////后
-			else if(Usart_Receive==0x02||Usart_Receive==0x03||Usart_Receive==0x04)	
-														Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=1;  //左
-			else if(Usart_Receive==0x06||Usart_Receive==0x07||Usart_Receive==0x08)	    //右
-														Flag_Qian=0,Flag_Hou=0,Flag_Left=1,Flag_Right=0;
-			else Flag_Qian=0,Flag_Hou=0,Flag_Left=0,Flag_Right=0;//////////////刹车
-  	}	
-
-		
-		
-		
-		
-		
-		//以下是与APP调试界面通讯
-		if(Usart_Receive==0x7B) Flag_PID=1;   //APP参数指令起始位
-		if(Usart_Receive==0x7D) Flag_PID=2;   //APP参数指令停止位
-
-		 if(Flag_PID==1)  //采集数据
-		 {
-			Receive[i]=Usart_Receive;
-			i++;
-		 }
-		 if(Flag_PID==2)  //分析数据
-		 {
-			     if(Receive[3]==0x50) 	 PID_Send=1;
-					 else  if(Receive[1]!=0x23) 
-					 {								
-						for(j=i;j>=4;j--)
-						{
-						  Data+=(Receive[j-1]-48)*pow(10,i-j);
-						}
-						switch(Receive[1])
-						 {	
-							 case 0x30:  //Balance_Kp=Data;
-							 blu_channel_1 = Data - 200;break; 
-							 case 0x31:  //Balance_Kd=Data;
-							 blu_channel_1 = Data - 19;break;
-							 case 0x32:  //Velocity_Kp=Data;
-							 blu_channel_1 = Data - 50;break;
-							 case 0x33:  //Velocity_Ki=Data;
-							 blu_channel_1 = Data - 10;break;
-							 case 0x34:  break;
-							 case 0x35:  break;
-							 case 0x36:  break;
-							 case 0x37:  break; //预留
-							 case 0x38:  break; //预留
-						 }
-					 }				 
-					 Flag_PID=0;//相关标志位清零
-					 i=0;
-					 j=0;
-					 Data=0;
-					 memset(Receive, 0, sizeof(u8)*50);//数组清零
-		 } 	 
    }
 return 0;	
 }
